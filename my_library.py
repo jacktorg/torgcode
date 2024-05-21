@@ -10,7 +10,7 @@ def cond_prob(table,evidence,evidence_value,target,target_value):
   t_subset = up_table_subset(table, target, 'equals', target_value)
   e_list = up_get_column(t_subset, evidence)  #notice we are grabbing from t_subset, not entire table
   p_b_a = sum([1 if v==evidence_value else 0 for v in e_list])/len(e_list)  #count and divide
-  return p_b_a
+  return p_b_a + .01
 
 def cond_probs_product(table, evidence_row, target, target_value):
   #your function body below
