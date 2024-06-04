@@ -107,3 +107,28 @@ def run_random_forest(train, test, target, n):
 
 
   return metrics_table
+
+
+def try_archs(full_table, target, architectures, thresholds):
+  #target is target column name
+  #target = 
+  #split full_table
+  train, test = up_train_test_split(full_table, target, .4)
+
+  #now loop through architectures
+  for arch in architectures:
+    all_results = up_neural_net(train, test, arch, target)
+
+    #loop through thresholds
+    all_mets = []
+    for t in thresholds:
+      all_predictions = [1 if pos>=t else 0 for neg,pos in all_results]
+      pred_act_list = up_zip_lists(all_predictions, up_get_column(test, target))
+      mets = metrics(pred_act_list)
+      mets['Threshold'] = t
+      all_mets = all_mets + [mets]
+
+    print(f'Architecture: {arch}')
+    print(up_metrics_table(all_mets))
+
+  return None  #main use is to print out threshold tables, not return anything useful.
