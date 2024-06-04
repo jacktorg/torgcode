@@ -46,6 +46,10 @@ def naive_bayes(table, evidence_row, target):
 
 def metrics(zipped_list):
   #asserts here
+  for a,b in zipped_list:
+   assert isinstance(a,(int,float)) and isinstance(b,(int,float)), f'zipped_list contains a non-int or non-float pair: {[a,b]}'
+  for a,b in zipped_list:
+   assert float(a) in [0.0,1.0] and float(b) in [0.0,1.0], f'zipped_list contains a non-binary pair: {[a,b]}'
   assert isinstance(zipped_list,list), f'Expecting a list within metrics, instead it is not a list.'
   for pair in zipped_list:
     assert isinstance(pair,list), f'Expecting a list of lists within metrics, instead it is just a list.'
@@ -53,10 +57,7 @@ def metrics(zipped_list):
     for n in pair:
       assert isinstance(n, int), f'Expecting a list of integer pairs, instead the list is not all integers.'
       assert n >= 0, f'Expecting a list of positive pairs, instead the integers are not all positive.'
-  for a,b in zipped_list:
-   assert isinstance(a,(int,float)) and isinstance(b,(int,float)), f'zipped_list contains a non-int or non-float pair: {[a,b]}'
-  for a,b in zipped_list:
-   assert float(a) in [0.0,1.0] and float(b) in [0.0,1.0], f'zipped_list contains a non-binary pair: {[a,b]}'
+  
 
   #body of function below
   tn = sum([1 if pair==[0,0] else 0 for pair in zipped_list])
