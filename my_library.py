@@ -54,9 +54,6 @@ def metrics(zipped_list):
   for pair in zipped_list:
     assert isinstance(pair,list), f'Expecting a list of lists within metrics, instead it is just a list.'
     assert len(pair) == 2, f'Expecting a list of pairs within metrics, instead it is not a list of pairs.'
-    for n in pair:
-      assert isinstance(n, int), f'Expecting a list of integer pairs, instead the list is not all integers.'
-      assert n >= 0, f'Expecting a list of positive pairs, instead the integers are not all positive.'
   
 
   #body of function below
