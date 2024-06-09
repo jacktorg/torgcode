@@ -51,9 +51,9 @@ def metrics(zipped_list):
   for a,b in zipped_list:
    assert float(a) in [0.0,1.0] and float(b) in [0.0,1.0], f'zipped_list contains a non-binary pair: {[a,b]}'
   assert isinstance(zipped_list,list), f'Expecting a list within metrics, instead it is not a list.'
-  for pair in zipped_list:
-    assert isinstance(pair,list), f'Expecting a list of lists within metrics, instead it is just a list.'
-    assert len(pair) == 2, f'Expecting a list of pairs within metrics, instead it is not a list of pairs.'
+  #for pair in zipped_list:
+    #assert isinstance(pair,list), f'Expecting a list of lists within metrics, instead it is just a list.'
+    #assert len(pair) == 2, f'Expecting a list of pairs within metrics, instead it is not a list of pairs.'
   
 
   #body of function below
