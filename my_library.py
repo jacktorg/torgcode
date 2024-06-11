@@ -108,10 +108,6 @@ def run_random_forest(train, test, target, n):
 
 def try_archs(full_table, target, architectures, thresholds):
   #target is target column name
-  #target = 
-  #split full_table
-  train, test = up_train_test_split(full_table, target, .4)
-
   #now loop through architectures
   for arch in architectures:
     all_results = up_neural_net(train, test, arch, target)
